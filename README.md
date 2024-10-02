@@ -1,4 +1,4 @@
-# zeitungs-lm
+# Zeitungs-LM
 
 This repository hosts all necessary information for pretraining and benchmarking the `zeitungs-lm`, a language model trained on Historical German Newspapers.
 
