@@ -4,7 +4,7 @@ This repository hosts all necessary information for pretraining and benchmarking
 
 # Changelog
 
-02.10.2024: Initial version of this repo.
+02.10.2024: Initial version of this repo. More details are coming very soon!
 
 # Acknowledgements
 
