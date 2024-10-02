@@ -1,0 +1,33 @@
+{
+    "batch_sizes": [
+        16,
+        8
+    ],
+    "learning_rates": [
+        3e-5,
+        5e-5
+    ],
+    "epochs": [
+        10
+    ],
+    "context_sizes": [
+        0
+    ],
+    "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "layers": "-1",
+    "subword_poolings": [
+        "first"
+    ],
+    "use_crf": false,
+    "use_tensorboard": true,
+    "hf_model": "stefan-it/bibliothek-lm-c2-c3-sent-dupe2-ckpt-901000",
+    "model_short_name": "bibliothek_lm_c2_c3_sent_dupe2_ckpt_901000",
+    "task": "ner/german_europeana_lft",
+    "cuda": "0"
+}
