@@ -39,6 +39,7 @@ def prepare_ajmc_corpus(
 
     print("Special preprocessing for AJMC has finished!")
 
+
 def prepare_clef_2020_corpus(
         file_in: Path, file_out: Path, eos_marker: str, document_separator: str, add_document_separator: bool
 ):
@@ -103,11 +104,11 @@ def prepare_clef_2020_corpus(
         prev_prev_line_splitted[0] += suffix
 
         prev_line_splitted = lines[index - 1].split("\t")
-        prev_line_splitted[0] = "#" + prev_line_splitted[0]
+        prev_line_splitted[0] = "# " + prev_line_splitted[0]
         prev_line_splitted[-1] += "|Commented"
 
         current_line_splitted = line.split("\t")
-        current_line_splitted[0] = "#" + current_line_splitted[0]
+        current_line_splitted[0] = "# " + current_line_splitted[0]
         current_line_splitted[-1] += "|Commented"
 
         # Add some meta information about suffix length
@@ -128,7 +129,7 @@ def prepare_clef_2020_corpus(
 
         # oh noooo
         current_line_splitted = line.split("\t")
-        current_line_splitted[0] = "#" + current_line_splitted[0]
+        current_line_splitted[0] = "# " + current_line_splitted[0]
 
         current_line_splitted[-1] += "|Commented"
 
@@ -153,6 +154,7 @@ def prepare_clef_2020_corpus(
     with open(file_out, "wt") as f_out:
         for line in lines:
             f_out.write(line + "\n")
+
 
 def prepare_newseye_de_fr_corpus(
     file_in: Path, file_out: Path, eos_marker: str, document_separator: str, add_document_separator: bool
