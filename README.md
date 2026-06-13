@@ -4,6 +4,27 @@ This repository hosts all necessary information for benchmarking the [Zeitungs-L
 
 Technically the model itself is an ELECTRA model, which was pretrained with the [TEAMS](https://aclanthology.org/2021.findings-acl.219/) approach.
 
+## Setup
+
+This repo uses [uv](https://docs.astral.sh/uv/) for dependency management. The default
+install pulls a CPU build of PyTorch:
+
+```bash
+uv sync
+```
+
+For GPU experiments pick exactly one accelerator backend (they ship incompatible
+PyTorch builds and are declared as mutually exclusive extras):
+
+```bash
+uv sync --extra cuda   # NVIDIA GPUs, stable wheels from the cu132 index
+uv sync --extra xpu    # Intel GPUs, nightly wheels from the nightly/xpu index
+```
+
+The GPU wheels are Linux-only; on other platforms these extras fall back to the
+CPU build, so local development still works. Run any script with `uv run`, e.g.
+`uv run python benchmark/script.py`.
+
 ## Datasets
 
 Version 1 of the Zeitungs-LM was pretrained on the following publicly available datasets:
