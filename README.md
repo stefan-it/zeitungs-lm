@@ -1,5 +1,7 @@
 # Zeitungs-LM
 
+![Zeitungs-LM](zeitungs-lm-v1.png)
+
 This repository hosts all necessary information for benchmarking the [Zeitungs-LM](https://huggingface.co/stefan-it/zeitungs-lm-v1), a language model trained on Historical German Newspapers.
 
 Technically the model itself is an ELECTRA model, which was pretrained with the [TEAMS](https://aclanthology.org/2021.findings-acl.219/) approach.
