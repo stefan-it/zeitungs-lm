@@ -36,7 +36,7 @@ german_europeana_lft_config_template = \
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
     "task": "ner/german_europeana_lft",
-    "cuda": "0"
+    "device": "xpu"
 }"""
 
 german_europeana_onb_config_template = \
@@ -71,7 +71,7 @@ german_europeana_onb_config_template = \
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
     "task": "ner/german_europeana_onb",
-    "cuda": "0"
+    "device": "xpu"
 }
 """
 
@@ -107,7 +107,7 @@ hisgermaner_config_template = \
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
     "task": "ner/hisgermaner",
-    "cuda": "0"
+    "device": "xpu"
 }
 """
 
@@ -143,7 +143,7 @@ hipe2020_config_template = \
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
     "task": "ner/hipe2020",
-    "cuda": "0"
+    "device": "xpu"
 }
 """
 
@@ -179,7 +179,7 @@ newseye_config_template = \
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
     "task": "ner/newseye",
-    "cuda": "0"
+    "device": "xpu"
 }
 """
 
