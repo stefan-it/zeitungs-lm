@@ -191,15 +191,29 @@ config_templates = {
     "newseye": newseye_config_template,
 }
 
-for checkpoint in checkpoints:
-    # E.g. stefan-it/bibliothek-lms-ckpt-951000
-    hf_model = f"stefan-it/bibliothek-lm-c2-c3-sent-dupe2-{checkpoint.name}"
-    model_short_name = hf_model.split("/")[1].replace("-", "_")
-    print(hf_model, model_short_name)
+models = [
+    {
+        "hf_model": "stefan-it/zeitungs-lm-v1",
+        "model_short_name": "zeitungs_lm_v1",
+    },
+    {
+        "hf_model": "dbmdz/bert-base-german-europeana-cased",
+        "model_short_name": "europeana_bert",
+    },
+]
+
+for model in models:
+    hf_model = model["hf_model"]
+    model_short_name = model["model_short_name"]
+    print("Create config for model:", f"'{hf_model}'", "known as", f"'{model_short_name}'")
+
+    # First, create folder
+    p = Path(model_short_name)
+    p.mkdir(parents=True, exist_ok=True)
 
     for config_name, config_template in config_templates.items():
         config_template = config_template.replace("HF_MODEL", hf_model)
         config_template = config_template.replace("MODEL_SHORT_NAME", model_short_name)
 
-        with open(checkpoint / f"{config_name}.json", "wt") as f_out:
+        with open(p / f"{config_name}.json", "wt") as f_out:
             f_out.write(config_template + "\n")
