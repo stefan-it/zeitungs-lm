@@ -30,8 +30,8 @@ hf_model         = json_config["hf_model"]
 model_short_name = json_config["model_short_name"]
 task             = json_config["task"]
 
-cuda = json_config["cuda"]
-flair.device = f'cuda:{cuda}'
+device = json_config["device"]
+flair.device = device
 
 for seed in seeds:
     for batch_size in batch_sizes:
