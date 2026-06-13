@@ -11,8 +11,6 @@ from pathlib import Path
 # Hugging Face Model Hub configuration
 config_file     = os.environ.get("CONFIG")
 hf_token        = os.environ.get("HF_TOKEN")
-hf_hub_org_name = os.environ.get("HUB_ORG_NAME")
-do_upload       = os.environ.get("HF_UPLOAD", False)
 
 login(token=hf_token, add_to_git_credential=True)
 api = HfApi()
@@ -51,41 +49,3 @@ for seed in seeds:
                             task=task,
                         )
                         output_path = run_experiment(experiment_configuration=experiment_configuration)
-
-                        if not do_upload:
-                            continue
-
-                        repo_url = api.create_repo(
-                            repo_id=f"{hf_hub_org_name}/{output_path}",
-                            token=hf_token,
-                            private=True,
-                            exist_ok=True,
-                        )
-
-                        if experiment_configuration.use_tensorboard:
-                            api.upload_folder(
-                                folder_path=f"{output_path}/runs",
-                                path_in_repo="./runs",
-                                repo_id=f"{hf_hub_org_name}/{output_path}",
-                                repo_type="model"
-                            )
-
-                        best_model_test_path = Path(f"{output_path}/best-model.pt")
-                        best_model_name = "best-model.pt"
-
-                        if not best_model_test_path.exists():
-                            # In some rare cases no best model was written (e.g. when F1-score is 0 for all epochs)
-                            best_model_name = "final-model.pt"
-
-                        api.upload_file(
-                            path_or_fileobj=f"{output_path}/{best_model_name}",
-                            path_in_repo="./pytorch_model.bin",
-                            repo_id=f"{hf_hub_org_name}/{output_path}",
-                            repo_type="model"
-                        )
-                        api.upload_file(
-                            path_or_fileobj=f"{output_path}/training.log",
-                            path_in_repo="./training.log",
-                            repo_id=f"{hf_hub_org_name}/{output_path}",
-                            repo_type="model"
-                        )
