@@ -76,7 +76,30 @@ Our Zeitungs-LM beats the German Europeana BERT model by a large margin (2.23%).
 
 # Changelog
 
-13.06.2026: Initial version of this repo with fresh evaluations on various Historical NER datasets for German.
+30.08.2026: Initial version of this repo with fresh evaluations on various Historical NER datasets for German.
+
+# 🤖 AI disclosure
+
+The repository introduces some "AI disclosure" rules:
+
+* The README's are written 100% by a human. Aren't we all tired of Em-Dashes, and Oxford commata?
+* The Python scripts always include an AI disclosure block, that is stating: a) which model was used, b) the AI-generated level and c) the level of human review.
+
+Here's an example:
+
+```python
+"""<One-line description of what the file does.>
+
+AI Disclosure:
+    Models:         Claude Fable 5 (claude-fable-5)
+    AI-Generated:   mostly        # fully | mostly | partially | none
+    Human-Reviewed: partially     # fully | partially | minimally | none
+"""
+```
+
+Currently, all Python scripts in this repository are written by a human (`AI-Generated: none`), but this will change in the future.
+
+The rules are maintained as a standalone ruleset in my [AI Disclosure](https://github.com/stefan-it/ai-disclosure) repo.
 
 # Acknowledgements
 
