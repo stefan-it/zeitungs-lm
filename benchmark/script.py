@@ -1,14 +1,15 @@
 """Benchmark runner: reads a JSON config and runs the seed/hyper-parameter grid via experiment.py.
 
 AI Disclosure:
-    Models:         none
-    AI-Generated:   none          # fully | mostly | partially | none
+    Models:         Claude Fable 5 (claude-fable-5)
+    AI-Generated:   partially     # fully | mostly | partially | none
     Human-Reviewed: fully         # fully | partially | minimally | none
 """
 
 import flair
 import json
 import os
+import torch
 
 from experiment import ExperimentConfiguration, run_experiment
 
@@ -36,8 +37,11 @@ hf_model         = json_config["hf_model"]
 model_short_name = json_config["model_short_name"]
 task             = json_config["task"]
 
-device = json_config["device"]
-flair.device = device
+# Optional device override (e.g. "cuda:1" or "cpu"). If absent, Flair picks
+# CUDA when available and falls back to CPU otherwise.
+device = json_config.get("device")
+if device is not None:
+    flair.device = torch.device(device)
 
 for seed in seeds:
     for batch_size in batch_sizes:
