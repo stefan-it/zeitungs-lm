@@ -1,3 +1,11 @@
+"""Benchmark runner: reads a JSON config and runs the seed/hyper-parameter grid via experiment.py.
+
+AI Disclosure:
+    Models:         none
+    AI-Generated:   none          # fully | mostly | partially | none
+    Human-Reviewed: fully         # fully | partially | minimally | none
+"""
+
 import flair
 import json
 import os

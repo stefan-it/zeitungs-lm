@@ -1,3 +1,11 @@
+"""Experiment configuration and Flair NER fine-tuning runner for the benchmark datasets.
+
+AI Disclosure:
+    Models:         none
+    AI-Generated:   none          # fully | mostly | partially | none
+    Human-Reviewed: fully         # fully | partially | minimally | none
+"""
+
 import logging
 
 from dataclasses import dataclass

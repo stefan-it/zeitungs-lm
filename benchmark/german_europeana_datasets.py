@@ -1,3 +1,11 @@
+"""Flair ColumnCorpus loaders for the German Europeana NER datasets (LFT and ONB).
+
+AI Disclosure:
+    Models:         none
+    AI-Generated:   none          # fully | mostly | partially | none
+    Human-Reviewed: fully         # fully | partially | minimally | none
+"""
+
 import flair
 
 from flair.datasets.sequence_labeling import ColumnCorpus

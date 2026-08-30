@@ -1,3 +1,11 @@
+"""Parse Flair training logs and report dev/test micro F1 averaged over seeds as Markdown tables.
+
+AI Disclosure:
+    Models:         none
+    AI-Generated:   none          # fully | mostly | partially | none
+    Human-Reviewed: fully         # fully | partially | minimally | none
+"""
+
 import re
 import sys
 import numpy as np

@@ -1,3 +1,11 @@
+"""Corpus preparation helpers (AjMC, CLEF-HIPE 2020, NewsEye) copied from hmBench.
+
+AI Disclosure:
+    Models:         none
+    AI-Generated:   none          # fully | mostly | partially | none
+    Human-Reviewed: fully         # fully | partially | minimally | none
+"""
+
 from flair.data import Sentence
 from flair.embeddings import TransformerWordEmbeddings
 

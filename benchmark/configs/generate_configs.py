@@ -1,3 +1,11 @@
+"""Generate benchmark JSON configs for every ckpt-* checkpoint directory.
+
+AI Disclosure:
+    Models:         none
+    AI-Generated:   none          # fully | mostly | partially | none
+    Human-Reviewed: fully         # fully | partially | minimally | none
+"""
+
 import json
 
 from pathlib import Path
