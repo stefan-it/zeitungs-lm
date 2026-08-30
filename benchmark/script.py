@@ -11,7 +11,7 @@ import json
 import os
 import torch
 
-from experiment import ExperimentConfiguration, run_experiment
+from experiment import ExperimentConfiguration, get_output_path, run_experiment
 
 from huggingface_hub import login, HfApi
 
@@ -60,4 +60,11 @@ for seed in seeds:
                             base_model_short=model_short_name,
                             task=task,
                         )
+
+                        # Skip hyper-parameter configs that already have an output folder
+                        output_path = get_output_path(experiment_configuration)
+                        if Path(output_path).exists():
+                            print(f"Skipping experiment, output folder already exists: {output_path}")
+                            continue
+
                         output_path = run_experiment(experiment_configuration=experiment_configuration)

@@ -45,6 +45,21 @@ class ExperimentConfiguration:
     use_tensorboard: bool = True
 
 
+def get_output_path(experiment_configuration: ExperimentConfiguration) -> str:
+    output_path_parts = [
+        "flair",
+        experiment_configuration.task.split("/")[0],
+        experiment_configuration.task.split("/")[1].replace("_", "-"),
+        experiment_configuration.base_model_short,
+        f"bs{experiment_configuration.batch_size}",
+        f"e{experiment_configuration.epoch}",
+        f"lr{experiment_configuration.learning_rate}",
+        str(experiment_configuration.seed)
+    ]
+
+    return "-".join(output_path_parts)
+
+
 def run_experiment(experiment_configuration: ExperimentConfiguration) -> str:
     set_seed(experiment_configuration.seed)
 
@@ -108,18 +123,7 @@ def run_experiment(experiment_configuration: ExperimentConfiguration) -> str:
 
         trainer = ModelTrainer(tagger, corpus)
 
-        output_path_parts = [
-            "flair",
-            experiment_configuration.task.split("/")[0],
-            experiment_configuration.task.split("/")[1].replace("_", "-"),
-            experiment_configuration.base_model_short,
-            f"bs{experiment_configuration.batch_size}",
-            f"e{experiment_configuration.epoch}",
-            f"lr{experiment_configuration.learning_rate}",
-            str(experiment_configuration.seed)
-        ]
-
-        output_path = "-".join(output_path_parts)
+        output_path = get_output_path(experiment_configuration)
 
         plugins = []
 
