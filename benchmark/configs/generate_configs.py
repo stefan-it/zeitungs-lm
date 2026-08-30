@@ -151,6 +151,41 @@ hipe2020_config_template = \
 }
 """
 
+ajmc_config_template = \
+    """{
+    "batch_sizes": [
+        4,
+        8
+    ],
+    "learning_rates": [
+        3e-5,
+        5e-5
+    ],
+    "epochs": [
+        10
+    ],
+    "context_sizes": [
+        0
+    ],
+    "seeds": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ],
+    "layers": "-1",
+    "subword_poolings": [
+        "first"
+    ],
+    "use_crf": false,
+    "use_tensorboard": true,
+    "hf_model": "HF_MODEL",
+    "model_short_name": "MODEL_SHORT_NAME",
+    "task": "ner/hipe2022_ajmc_de"
+}
+"""
+
 newseye_config_template = \
     """{
     "batch_sizes": [
@@ -226,6 +261,7 @@ config_templates = {
     "german_europeana_onb": german_europeana_onb_config_template,
     "hisgermaner": hisgermaner_config_template,
     "hipe2020": hipe2020_config_template,
+    "ajmc": ajmc_config_template,
     "newseye": newseye_config_template,
     "zefys2025": zefys2025_config_template,
 }
