@@ -15,12 +15,10 @@ install pulls a CPU build of PyTorch:
 uv sync
 ```
 
-For GPU experiments pick exactly one accelerator backend (they ship incompatible
-PyTorch builds and are declared as mutually exclusive extras):
+For training models on GPU, use this;
 
 ```bash
-uv sync --extra cuda   # NVIDIA GPUs, stable wheels from the cu132 index
-uv sync --extra xpu    # Intel GPUs, nightly wheels from the nightly/xpu index
+uv sync --no-group cpu --extra cuda
 ```
 
 The GPU wheels are Linux-only; on other platforms these extras fall back to the
