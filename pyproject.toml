@@ -1,0 +1,53 @@
+[project]
+name = "zeitungs-lm"
+version = "0.1.0"
+description = "Benchmarking scripts for Zeitungs-LM, a language model trained on Historical German Newspapers"
+readme = "README.md"
+license = "Apache-2.0"
+authors = [{ name = "Stefan Schweter", email = "stefan@schweter.it" }]
+requires-python = ">=3.10"
+dependencies = [
+    "flair>=0.15.1",
+    "huggingface-hub>=0.36",
+    "numpy>=1.26",
+    "tabulate>=0.9.0",
+    "tensorboard>=2.20",
+]
+
+# PyTorch backend selection. The `cpu` dependency group is enabled by default,
+# so a plain `uv sync` installs the CPU build. For NVIDIA GPUs disable that
+# group and enable the `cuda` extra instead:
+#
+#   uv sync                              # CPU build
+#   uv sync --no-group cpu --extra cuda  # cu132 build (Linux only, other
+#                                        # platforms fall back to the CPU build)
+[project.optional-dependencies]
+cuda = ["torch>=2.6"]
+
+[dependency-groups]
+cpu = ["torch>=2.6"]
+
+[tool.uv]
+# Plain scripts in benchmark/, nothing to build/install as a package.
+package = false
+default-groups = ["cpu"]
+# The two PyTorch builds are incompatible, so they must never be resolved
+# into the same environment.
+conflicts = [[{ group = "cpu" }, { extra = "cuda" }]]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu132"
+url = "https://download.pytorch.org/whl/cu132"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cpu", group = "cpu" },
+    { index = "pytorch-cu132", extra = "cuda", marker = "sys_platform == 'linux'" },
+    { index = "pytorch-cpu", extra = "cuda", marker = "sys_platform != 'linux'" },
+]
