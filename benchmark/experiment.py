@@ -22,6 +22,7 @@ from pathlib import Path
 
 from german_europeana_datasets import GERMAN_EUROPEANA_NER_LFT, GERMAN_EUROPEANA_NER_ONB
 from hisgermaner_dataset import HisGermaNER
+from zefys2025_dataset import ZEFYS2025
 from utils import prepare_ajmc_corpus, prepare_clef_2020_corpus, prepare_newseye_de_fr_corpus
 
 logger = logging.getLogger("flair")
@@ -54,6 +55,7 @@ def run_experiment(experiment_configuration: ExperimentConfiguration) -> str:
     # - ner/hipe2020
     # - ner/hisgermaner
     # - ner/newseye
+    # - ner/zefys2025
 
     label_type = None
 
@@ -80,6 +82,8 @@ def run_experiment(experiment_configuration: ExperimentConfiguration) -> str:
                                    add_document_separator=True)
         elif experiment_configuration.task == "ner/hisgermaner":
             corpus = HisGermaNER()
+        elif experiment_configuration.task == "ner/zefys2025":
+            corpus = ZEFYS2025()
 
         label_dictionary = corpus.make_label_dictionary(label_type=label_type)
         logger.info("Label Dictionary: {}".format(label_dictionary.get_items()))
