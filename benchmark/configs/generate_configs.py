@@ -1,8 +1,8 @@
 """Generate benchmark JSON configs for every ckpt-* checkpoint directory.
 
 AI Disclosure:
-    Models:         none
-    AI-Generated:   none          # fully | mostly | partially | none
+    Models:         Claude Fable 5 (claude-fable-5)
+    AI-Generated:   partially     # fully | mostly | partially | none
     Human-Reviewed: fully         # fully | partially | minimally | none
 """
 
@@ -43,8 +43,7 @@ german_europeana_lft_config_template = \
     "use_tensorboard": true,
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
-    "task": "ner/german_europeana_lft",
-    "device": "xpu"
+    "task": "ner/german_europeana_lft"
 }"""
 
 german_europeana_onb_config_template = \
@@ -78,8 +77,7 @@ german_europeana_onb_config_template = \
     "use_tensorboard": true,
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
-    "task": "ner/german_europeana_onb",
-    "device": "xpu"
+    "task": "ner/german_europeana_onb"
 }
 """
 
@@ -114,8 +112,7 @@ hisgermaner_config_template = \
     "use_tensorboard": true,
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
-    "task": "ner/hisgermaner",
-    "device": "xpu"
+    "task": "ner/hisgermaner"
 }
 """
 
@@ -150,8 +147,7 @@ hipe2020_config_template = \
     "use_tensorboard": true,
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
-    "task": "ner/hipe2020",
-    "device": "xpu"
+    "task": "ner/hipe2020"
 }
 """
 
@@ -186,8 +182,7 @@ newseye_config_template = \
     "use_tensorboard": true,
     "hf_model": "HF_MODEL",
     "model_short_name": "MODEL_SHORT_NAME",
-    "task": "ner/newseye",
-    "device": "xpu"
+    "task": "ner/newseye"
 }
 """
 
