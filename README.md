@@ -76,7 +76,7 @@ Our Zeitungs-LM beats the German Europeana BERT model by a large margin (1.59%).
 
 # Changelog
 
-30.08.2026: Initial version of this repo with fresh evaluations on various Historical NER datasets for German.
+31.08.2026: Initial version of this repo with fresh evaluations on various Historical NER datasets for German.
 
 # 🤖 AI disclosure
 
