@@ -46,23 +46,23 @@ We report averaged micro F1-Score over 5 runs with different seeds and use the b
 
 The results on the development set can be seen in the following table:
 
-| Model \ Dataset     | [LFT][1] | [ONB][2] | [HisGermaNER][3] | [HIPE-2020][4] | [NewsEye][5] | [AjMC][6] | Avg.      |
-|:--------------------|:---------|:---------|:-----------------|:---------------|:-------------|:----------|:----------|
-| [Europeana BERT][7] | 79.22    | 88.20    | 81.41            | 80.92          | 41.65        | 87.91     | 76.55     |
-| Zeitungs-LM v1      | 79.39    | 88.53    | 83.10            | 81.55          | 44.53        | 89.71     | **77.80** |
+| Model \ Dataset     | [LFT][1]     | [ONB][2]     | [HisGermaNER][3] | [HIPE-2020][4] | [NewsEye][5] | [AjMC][6]    | [ZEFYS2025][7] | Avg.      |
+|:--------------------|:-------------|:-------------|:-----------------|:---------------|:-------------|:-------------|:---------------|:----------|
+| [Europeana BERT][8] | 79.66 ± 0.55 | 87.87 ± 0.62 | 81.60 ± 0.96     | 80.63 ± 0.42   | 41.21 ± 0.95 | 88.08 ± 0.81 | 86.52 ± 0.21   | 77.94     |
+| [Zeitungs-LM v1][9] | 79.05 ± 0.32 | 88.45 ± 0.77 | 83.48 ± 1.15     | 81.32 ± 0.56   | 43.02 ± 1.12 | 89.50 ± 0.82 | 87.68 ± 0.41   | 78.93     |
 
-Our Zeitungs-LM leads to a performance boost of 1.25% compared to the German Europeana BERT model.
+Our Zeitungs-LM leads to a performance boost of 0.99% compared to the German Europeana BERT model.
 
 ### Test Set
 
 The final results on the test set can be seen here:
 
-| Model \ Dataset     | [LFT][1] | [ONB][2] | [HisGermaNER][3] | [HIPE-2020][4] | [NewsEye][5] | [AjMC][6] | Avg.
-|:--------------------|:---------|:---------|:-----------------|:---------------|:-------------|:----------|:---------|
-| [Europeana BERT][7] | 80.43    | 84.39    | 83.21            | 77.49          | 42.96        | 90.52     | 76.50    |
-| Zeitungs-LM v1      | 80.35    | 87.28    | 84.92            | 79.91          | 47.16        | 92.76     | **78.73**|
+| Model \ Dataset     | [LFT][1]     | [ONB][2]     | [HisGermaNER][3] | [HIPE-2020][4] | [NewsEye][5] | [AjMC][6]    | [ZEFYS2025][7] | Avg.      |
+|:--------------------|:-------------|:-------------|:-----------------|:---------------|:-------------|:-------------|:---------------|:----------|
+| [Europeana BERT][8] | 79.66 ± 0.55 | 84.80 ± 1.74 | 82.79 ± 1.01     | 77.62 ± 0.80   | 44.31 ± 3.04 | 90.59 ± 0.38 | 84.47 ± 0.49   | 77.75     |
+| [Zeitungs-LM v1][9] | 79.49 ± 1.08 | 87.08 ± 0.30 | 84.51 ± 1.22     | 79.34 ± 0.96   | 45.97 ± 2.30 | 91.82 ± 1.72 | 87.17 ± 0.50   | 79.34     |
 
-Our Zeitungs-LM beats the German Europeana BERT model by a large margin (2.23%).
+Our Zeitungs-LM beats the German Europeana BERT model by a large margin (1.59%).
 
 [1]: https://aclanthology.org/P18-2020/
 [2]: https://aclanthology.org/P18-2020/
@@ -70,7 +70,9 @@ Our Zeitungs-LM beats the German Europeana BERT model by a large margin (2.23%).
 [4]: https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-hipe2020.md
 [5]: https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-newseye.md
 [6]: https://github.com/hipe-eval/HIPE-2022-data/blob/main/documentation/README-ajmc.md
-[7]: https://huggingface.co/dbmdz/bert-base-german-europeana-cased
+[7]: https://huggingface.co/datasets/SBB/ZEFYS2025
+[8]: https://huggingface.co/dbmdz/bert-base-german-europeana-cased
+[9]: https://huggingface.co/stefan-it/zeitungs-lm-v1
 
 # Changelog
 
